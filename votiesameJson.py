@@ -7,7 +7,7 @@ import os
 print('*************************************************************************')
 print('*******                      Test Vote Tool                       *******')
 print('*************************************************************************\n\n')
-print('Questa applicazione permette di inserire manualmente i nomi degli studenti del corso di Meccanica applicata alle Macchine ed il corrispettivo voto del corso.')
+print('This applicazione permette di inserire manualmente i nomi degli studenti del corso di Meccanica applicata alle Macchine ed il corrispettivo voto del corso.')
 print('Al termine della procedura verrà calcolata la media aritmetica e salvata esternamente in file mediacorso.json\n')
 print('Per poter stoppare i dati in input basterà inserire la parola "quit" come nome dello studente.\n')
 
