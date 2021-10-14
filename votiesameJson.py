@@ -43,6 +43,14 @@ while True:
 
 media = sommavoti/n
 
+jsonoutput = {
+    "coursename": "Mechanics applied to the machines",
+    "average": media
+}
+
+with open('mediacorso.json','w') as json_file:
+    json.dump(jsonoutput,json_file)
+
 time.sleep(2)
 print('\n')
 print('The arithmetic mean of the course is equal to ',media)
@@ -84,10 +92,4 @@ while True:
         print('2 - Show entered names;')
         scelta = int(input('3 - Exit.\n\n>>> '))
 
-jsonoutput = {
-    'nomecorso': 'Mechanics applied to the machines',
-    'average': media
-}
 
-with open('mediacorso.json','w') as json_file:
-    json.dump(jsonoutput,json_file)
