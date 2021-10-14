@@ -2,26 +2,23 @@ import json
 import time
 import os
 
-#Inizializziamo l'applicazione
-
 print('*************************************************************************')
 print('*******                      Test Vote Tool                       *******')
 print('*************************************************************************\n\n')
-print('This application permette di inserire manualmente i nomi degli studenti del corso di Meccanica applicata alle Macchine ed il corrispettivo voto del corso.')
-print('Al termine della procedura verrà calcolata la media aritmetica e salvata esternamente in file mediacorso.json\n')
-print('Per poter stoppare i dati in input basterà inserire la parola "quit" come nome dello studente.\n')
+print('This application allows you to manually enter the names of the students of the course in Mechanics applied to Machines and the corresponding grade of the course.')
+print('At the end of the procedure the arithmetic average will be calculated and saved externally in the mediacorso.json file\n')
+print('To be able to stop the input data, simply enter the word "quit" as the student name.\n')
 
-nomevoto = []
 n = 0
 sommavoti = 0
-arraynomi = []
-nomecapital = str
-arraynomicapital = []
+nomevoto = []
 arrayvoti = []
-nomeindex = int
+arraynomi = []
+arraynomicapital = []
+nomecapital = str
 
 while True:
-    nome = str(input('Inserisci il nome dello studente (inserisci quit per stoppare)\n>>> '))
+    nome = str(input('Enter student name (enter quit to stop)\n>>> '))
     nomecapital = nome.upper()
     nomevoto.append(nome)
     arraynomi.append(nome)
@@ -31,12 +28,12 @@ while True:
         arraynomi.remove('quit')
         break
     else:
-        voto = int(input('Inserisci il voto\n>>> '))
+        voto = int(input('Enter the grade\n>>> '))
         while voto < 18 or voto >30:
             time.sleep(1)
-            print('Il voto inserito deve essere compreso tra 18 e 30\n')
+            print('The grade entered must be between 18 and 30\n')
             time.sleep(1)
-            voto = int(input('Inserisci nuovamente il voto\n>>> '))
+            voto = int(input('Please enter your grade again\n>>> '))
         else:
             nomevoto.append(voto)
             arrayvoti.append(voto)
@@ -48,49 +45,49 @@ media = sommavoti/n
 
 time.sleep(2)
 print('\n')
-print('La media aritmetica del corso ottenuta è pari a ',media)
+print('The arithmetic mean of the course is equal to ',media)
 time.sleep(1)
-print('Il relativo corso e la media saranno salvati in automatico nel file mediacorso.json.\n')
+print('The relative course and the average will be automatically saved in the mediacorso.json file.\n')
 
-print('Scegli uno dei seguenti comandi per continuare:')
-print('1 - Visualizza i valori inseriti;')
-print('2 - Mostra i nomi inseriti;')
-print('3 - Visualizza il voto per ricerca nome;')
-scelta = int(input('4 - Esci.\n\n>>> '))
+print('Choose one of the following commands to continue:')
+print('1 - View the entered values;')
+print('2 - Show entered names;')
+print('3 - Displays the grade by name search;')
+scelta = int(input('4 - Exit.\n\n>>> '))
 
 while True:
     if scelta == 1:
-        print('\nEcco di seguito i valori inseriti:')
+        print('\nHere are the values ​​entered:')
         print(nomevoto)
         time.sleep(1)
-        print('\nScegli uno dei seguenti comandi per continuare:')
-        print('1 - Visualizza i valori inseriti;')
-        print('2 - Mostra i nomi inseriti;')
-        scelta = int(input('3 - Esci.\n\n>>> '))
+        print('\nChoose one of the following commands to continue:')
+        print('1 - View the entered values;')
+        print('2 - Show entered names;')
+        scelta = int(input('3 - Exit.\n\n>>> '))
     elif scelta == 2:
-        print('\nEcco di seguito i Nomi inseriti:')
+        print('\nHere are the Names entered:')
         print(arraynomi)
         time.sleep(1)
-        print('\nScegli uno dei seguenti comandi per continuare:')
-        print('1 - Visualizza i valori inseriti;')
-        print('2 - Mostra i nomi inseriti;')
-        scelta = int(input('3 - Esci.\n\n>>> '))
+        print('\nChoose one of the following commands to continue:')
+        print('1 - View the entered values;')
+        print('2 - Show entered names;')
+        scelta = int(input('3 - Exit.\n\n>>> '))
     elif scelta == 3:
         time.sleep(0.5)
-        print('\nLa sua soddisfazione è il nostro miglior premio!\n')
+        print('\nYour satisfaction is our best reward!\n')
         time.sleep(2)
         quit()
     else:
         time.sleep(1)
-        print('\nIl valore inserito non è corretto.\n')
-        print('Scegli uno dei seguenti comandi per continuare:')
-        print('1 - Visualizza i valori inseriti;')
-        print('2 - Mostra i nomi inseriti;')
-        scelta = int(input('3 - Esci.\n\n>>> '))
+        print('\nThe entered value is incorrect.\n')
+        print('\nChoose one of the following commands to continue:')
+        print('1 - View the entered values;')
+        print('2 - Show entered names;')
+        scelta = int(input('3 - Exit.\n\n>>> '))
 
 jsonoutput = {
-    'nomecorso': 'Meccanica applicata alle macchine',
-    'media': media
+    'nomecorso': 'Mechanics applied to the machines',
+    'average': media
 }
 
 with open('mediacorso.json','w') as json_file:
