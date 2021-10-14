@@ -52,8 +52,7 @@ print('The relative course and the average will be automatically saved in the me
 print('Choose one of the following commands to continue:')
 print('1 - View the entered values;')
 print('2 - Show entered names;')
-print('3 - Displays the grade by name search;')
-scelta = int(input('4 - Exit.\n\n>>> '))
+scelta = int(input('3 - Exit.\n\n>>> '))
 
 while True:
     if scelta == 1:
