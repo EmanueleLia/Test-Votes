@@ -15,17 +15,21 @@ nomevoto = []
 arrayvoti = []
 arraynomi = []
 arraynomicapital = []
+arraykeyvalue = []
+jsonkeyvalue = str
 nomecapital = str
 
 while True:
     nome = str(input('Enter student name (enter quit to stop)\n>>> '))
     nomecapital = nome.upper()
+    arraykeyvalue.append(nomecapital)
     nomevoto.append(nome)
     arraynomi.append(nome)
     arraynomicapital.append(nomecapital)
     if nome == 'quit':
         nomevoto.remove('quit')
         arraynomi.remove('quit')
+        arraykeyvalue.remove('QUIT')
         break
     else:
         voto = int(input('Enter the grade\n>>> '))
@@ -37,6 +41,7 @@ while True:
         else:
             nomevoto.append(voto)
             arrayvoti.append(voto)
+            arraykeyvalue.append(voto)
             sommavoti = sommavoti + voto
             n = n + 1
             print('\n')
@@ -48,8 +53,15 @@ jsonoutput = {
     "average": media
 }
 
+#write the jsonoutput in the mediacorso.json file
 with open('mediacorso.json','w') as json_file:
     json.dump(jsonoutput,json_file)
+
+jsonkeyvalue = {arraykeyvalue[i]: arraykeyvalue[i + 1] for i in range(0, len(arraykeyvalue), 2)}
+
+#write the jsonkeyvalue in the namelist.json file
+with open('namelist.json','w') as json_file:
+    json.dump(jsonkeyvalue,json_file)
 
 time.sleep(2)
 print('\n')
