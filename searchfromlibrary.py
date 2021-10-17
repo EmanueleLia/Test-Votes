@@ -8,3 +8,6 @@ print('||   -n   || Show the Name List                          ||')
 print('||   -g   || Show the Grade List                         ||')
 print('||   -e   || Exit                                        ||')
 print('\n')
+
+while True:
+    menuchoice = str(input('Enter one of the commands\n>> '))
