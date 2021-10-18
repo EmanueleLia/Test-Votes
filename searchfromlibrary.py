@@ -57,6 +57,15 @@ while True:
         print('***********************************************************')
     if menuchoice == 4:
         break
+    if menuchoice < 1 or menuchoice > 4:
+        time.sleep(1.5)
+        print('\nWrong selection!\nSelect one of the following options:')
+        print('___________________________________________________________')
+        print('||   1   ||  Research a name from the library            ||')
+        print('||   2   ||  Show the Name List                          ||')
+        print('||   3   ||  Show the Grade List                         ||')
+        print('||   4   ||  Exit                                        ||')
+        print('***********************************************************')
 
 print('\nHave a good day sir.\n')
 
