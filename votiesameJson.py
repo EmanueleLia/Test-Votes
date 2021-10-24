@@ -1,6 +1,7 @@
 import json
 import time
 import os
+import guiapp
 
 print('*************************************************************************')
 print('*******                      Test Vote Tool                       *******')
@@ -19,32 +20,38 @@ arraykeyvalue = []
 jsonkeyvalue = str
 nomecapital = str
 
-while True:
-    nome = str(input('Enter student name (enter quit to stop)\n>>> '))
-    nomecapital = nome.upper()
-    arraykeyvalue.append(nomecapital)
-    nomevoto.append(nome)
-    arraynomi.append(nome)
-    arraynomicapital.append(nomecapital)
-    if nome == 'quit':
-        nomevoto.remove('quit')
-        arraynomi.remove('quit')
-        arraykeyvalue.remove('QUIT')
-        break
-    else:
-        voto = int(input('Enter the grade\n>>> '))
-        while voto < 18 or voto >30:
-            time.sleep(1)
-            print('The grade entered must be between 18 and 30\n')
-            time.sleep(1)
-            voto = int(input('Please enter your grade again\n>>> '))
+print('Do you want to use the GUI version of this app? (y/n)')
+guiChoice = input('>>> ')
+if guiChoice == 'y':
+    guiapp.showWindow()
+    quit()
+else:
+    while True:
+        nome = str(input('Enter student name (enter quit to stop)\n>>> '))
+        nomecapital = nome.upper()
+        arraykeyvalue.append(nomecapital)
+        nomevoto.append(nome)
+        arraynomi.append(nome)
+        arraynomicapital.append(nomecapital)
+        if nome == 'quit':
+            nomevoto.remove('quit')
+            arraynomi.remove('quit')
+            arraykeyvalue.remove('QUIT')
+            break
         else:
-            nomevoto.append(voto)
-            arrayvoti.append(voto)
-            arraykeyvalue.append(voto)
-            sommavoti = sommavoti + voto
-            n = n + 1
-            print('\n')
+            voto = int(input('Enter the grade\n>>> '))
+            while voto < 18 or voto >30:
+                time.sleep(1)
+                print('The grade entered must be between 18 and 30\n')
+                time.sleep(1)
+                voto = int(input('Please enter your grade again\n>>> '))
+            else:
+                nomevoto.append(voto)
+                arrayvoti.append(voto)
+                arraykeyvalue.append(voto)
+                sommavoti = sommavoti + voto
+                n = n + 1
+                print('\n')
 
 media = sommavoti/n
 
